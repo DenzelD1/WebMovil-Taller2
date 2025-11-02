@@ -1,0 +1,13 @@
+.contenedor-clima {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/clima-fondo.webp');
+    background-size: cover; 
+    background-position: center; 
+    color: white; 
+}
+
+.contenedor-news {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/news.jpg');
+    background-size: cover; 
+    background-position: center; 
+    color: white; 
+}

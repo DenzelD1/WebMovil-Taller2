@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.contenedor {
+    display: block;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none; 
+    color: inherit;
+}
+
+.contenedor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+#recursos {
+    display: flex;
+    flex-direction: column; 
+    gap: 1.5rem; 
+}
+
+.filter-invert-dark {
+    filter: invert(100%);
+}
+
+@media (min-width: 769px) {
+    #recursos {
+        flex-direction: row;
+        gap: 2rem; 
+    }
+
+    #recursos > .contenedor {
+        flex: 1;
+    }
+}
