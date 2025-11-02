@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Personajes - InfoMóvil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="bg-gray-50 font-sans">
+    <header class="bg-blue-600 text-white shadow-lg">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-3xl font-bold">Lista de Pokemones</h1>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-10">
+      <a href="index.html" class="inline-block bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition mb-8">
+        &larr; Volver al Inicio
+      </a>
+
+      <img src="img/pokemon-logo.png" alt="Logo Pokémon" class="w-64 mx-auto mb-14">
+      
+      <div id="filtro-contenedor" class="mb-6 flex flex-col md:flex-row gap-4 justify-start hidden">
+        <input type="text" id="filtro-nombre" placeholder="Buscar por Nombre..."
+              class="w-full md:w-1/4 p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+
+        <select id="filtro-tipo"
+                class="w-full md:w-1/4 p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-white">
+          <option value="">Filtrar por Tipo</option>
+        </select>
+          
+        <select id="filtro-generacion"
+                class="w-full md:w-1/4 p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-white">
+          <option value="">Filtrar por Generación</option>
+        </select>
+      </div>
+
+      <div id="personaje-detalle-info" class="bg-white p-5 m-4 rounded-lg shadow-lg">
+        <p class="text-gray-500 text-center text-xl">Cargando Pokemones (la primera vez que se accede suele tardar)...</p>
+      </div>
+
+      <div id="personajes-container" class="grid md:grid-cols-3 gap-8"></div>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-12">
+      <div class="container mx-auto px-6 py-6 text-center">
+        <p>&copy; 2025 InfoMóvil. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="js/main-personajes.js"></script>
+  </body>
+</html>

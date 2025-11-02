@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Detalle del Clima - InfoMóvil</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body class="bg-gray-50 font-sans">
+        <header class="bg-blue-600 text-white shadow-lg">
+            <div class="container mx-auto px-6 py-4">
+                <h1 class="text-3xl font-bold">Detalle del Clima</h1>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-6 py-10">
+            <a href="index.html" class="inline-block bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition mb-8">
+                &larr; Volver al Inicio
+            </a>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Buscar Clima por Ciudad</h2>
+                <form id="formulario-busqueda-clima" class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex-1">
+                        <label for="ciudad-input" class="block text-sm font-medium text-gray-700 mb-2">Ciudad</label>
+                        <input 
+                            type="text" 
+                            id="ciudad-input" 
+                            placeholder="Ej: Madrid, Tokyo, New York" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            required
+                        >
+                    </div>
+                    <div class="sm:w-48">
+                        <label for="pais-input" class="block text-sm font-medium text-gray-700 mb-2">País (opcional)</label>
+                        <input 
+                            type="text" 
+                            id="pais-input" 
+                            placeholder="Ej: es, jp, us" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        >
+                    </div>
+                    <div class="flex items-end">
+                        <button 
+                            type="submit" 
+                            class="w-full sm:w-auto bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-200"
+                        >
+                            Buscar Clima
+                        </button>
+                    </div>
+                </form>
+                <p class="text-sm text-gray-500 mt-2">
+                    💡 Tip: Puedes buscar solo por ciudad (ej: "Madrid") o especificar ciudad y país (ej: "Madrid, es") para mayor precisión.
+                </p>
+            </div>
+
+            <div id="clima-detalle-info" class="bg-white p-8 m-4 rounded-lg shadow-lg">
+                <p class="text-gray-500 text-center text-xl">Cargando datos del clima...</p>
+            </div>
+
+            <div id="clima-recomendaciones" class="space-y-6"> </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white mt-12">
+            <div class="container mx-auto px-6 py-4 text-center">
+                <p>&copy; 2025 InfoMóvil. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    
+        <script src="js/main.js"></script>
+    </body>
+</html>

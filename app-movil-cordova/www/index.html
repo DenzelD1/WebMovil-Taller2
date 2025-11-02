@@ -1,50 +1,97 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
+<html lang="es">
     <head>
         <meta charset="utf-8">
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
-            https://cordova.apache.org/docs/en/latest/
-        Some notes:
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="css/index.css">
-        <title>Hello World</title>
+        <title>InfoMovil</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/inicio.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+
+    <body class="flex flex-col min-h-screen bg-gray-50 font-sans">
+        <header class="bg-blue-600 text-white shadow-lg">
+            <div class="container mx-auto px-6 py-4">
+                <h1 class="text-3xl font-bold">InfoMóvil</h1>
+                <p class="text-lg opacity-90">Tu centro de información dinámica</p>
             </div>
-        </div>
-        <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
+        </header>
+
+        <main class="flex-grow container mx-auto px-6 py-10">
+            <section class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Toda la información que necesitas en un solo lugar</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Explora información útil de los siguientes recursos que proporciona nuestro centro.
+                </p>
+            </section>
+
+            <section id="recursos">
+                <a href="clima.html" id="recurso-clima" class="contenedor contenedor-clima">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Clima Actual</h3>
+                        <p class="text-gray-200 mb-4">Consulta el clima de cualquier ciudad del mundo.</p>
+                        <div id="clima-info-index" class="text-left">
+                            <p class="text-gray-200">Cargando...</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="noticia.html" id="recurso-news" class="contenedor contenedor-news">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Noticias</h3>
+                        <p class="text-gray-200">Lo último del día y las noticias que a ti te importan.</p>
+                    </div>
+                </a>
+
+                <a href="crypto.html" class="contenedor" 
+                   style="background-image: url('img/crypto.jpeg'); background-size: cover; background-position: center;">
+                    <div class="p-6 theme-color-bg text-white">
+                        <h3 class="text-2xl font-bold mb-2">Criptomonedas</h3>
+                        <p class="text-gray-200">Descubre las últimas noticias sobre criptomonedas.</p>
+                    </div>
+                </a>
+
+                <a href="personaje.html" class="contenedor" 
+                   style="background-image: url('img/personajes-pokemon.jpeg'); background-size: cover; background-position: center;">
+                   <div class="p-6 theme-color-bg text-white">
+                        <img src="img/pokemon-logo.png" alt="Logo Pokémon" class="w-32 mx-auto mb-4">
+                        <p class="text-gray-200">Descubre a tus favoritos.</p>
+                    </div>
+                </a>
+            </section>
+        </main>
+
+        <footer class="bg-gray-800 text-white mt-12">
+            <div class="container mx-auto px-6 py-4 text-center">
+                <p>&copy; 2025 InfoMóvil. Todos los derechos reservados.</p>
+                <p>Grupo 7. DD, DT, JC, MA.</p>
+            </div>
+        </footer>
+        <script src="js/main.js"></script>
     </body>
 </html>
