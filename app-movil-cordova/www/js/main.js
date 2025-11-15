@@ -12,15 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-const apiKey = '45bbbbc8d52806d52c20134121aa2c78';
-const ciudad = 'Coquimbo';
-const pais = 'cl';
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${apiKey}&units=metric&lang=es`;
+const urlBaseClima = 'http://localhost:8000/weather';
 
 function obtenerDatosClimaIndex() {
     const climaInfoDiv = document.getElementById('clima-info-index');
     
-    fetch(url)
+    const urlIndex = `${urlBaseClima}?q=Coquimbo,cl`;
+    fetch(urlIndex) 
         .then(response => response.json())
         .then(data => {
             if (data.cod !== 200) { 
@@ -48,7 +46,9 @@ function obtenerDatosClimaDetalle() {
     const climaDetalleDiv = document.getElementById('clima-detalle-info');
     const climaRecomendacionesDiv = document.getElementById('clima-recomendaciones');
     
-    fetch(url)
+    const urlDetalle = `${urlBaseClima}?q=Coquimbo,cl`;
+
+    fetch(urlDetalle) 
         .then(response => response.json())
         .then(data => {
             if (data.cod !== 200) {
@@ -162,7 +162,7 @@ function buscarClimaPorCiudad(ciudad, pais = '') {
     climaRecomendacionesDiv.innerHTML = '';
     
     const query = pais ? `${ciudad},${pais}` : ciudad;
-    const urlBusqueda = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(query)}&appid=${apiKey}&units=metric&lang=es`;
+    const urlBusqueda = `${urlBaseClima}?q=${encodeURIComponent(query)}`;
     
     fetch(urlBusqueda)
         .then(response => response.json())
@@ -179,7 +179,7 @@ function buscarClimaPorCiudad(ciudad, pais = '') {
                 <div class="text-center">
                     <p class="text-red-500 text-xl mb-4">No se pudo encontrar la ciudad "${ciudad}"</p>
                     <p class="text-gray-600">Verifica que el nombre de la ciudad esté escrito correctamente.</p>
-                    <p class="text-sm text-gray-500 mt-2">Ejemplos: Madrid, Tokyo, New York, London, Paris</p>
+                    <p class="text-sm text-gray-500 mt-2">Ejemplos: Coquimbo,cl, Tokyo, Madrid,es</p>
                 </div>
             `;
             climaRecomendacionesDiv.innerHTML = '';
