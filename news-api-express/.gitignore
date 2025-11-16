@@ -1,0 +1,11 @@
+# Dependencias de Node
+/node_modules
+
+# Archivos compilados de TypeScript
+/dist
+
+# Archivos de entorno (Contiene contraseñas)
+.env
+
+# Logs de NPM
+npm-debug.log*
