@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-const urlBaseClima = 'http://localhost:8000/weather';
+// Backend FastAPI runs on port 8001 during local development to avoid
+// conflict with the Cordova browser static server (which uses 8000).
+const urlBaseClima = 'http://localhost:8001/weather';
 
 function obtenerDatosClimaIndex() {
     const climaInfoDiv = document.getElementById('clima-info-index');

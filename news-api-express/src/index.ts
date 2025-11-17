@@ -7,7 +7,7 @@ import { pool } from './db'; // <-- 1. IMPORTAMOS EL POOL
 
 // 1. Crear la aplicación de Express
 const app = express();
-const port = 3000;
+const port = 3001; // Cambio a 3001 para evitar conflicto con NestJS en 3000
 
 // 2. Middleware para que Express entienda JSON
 app.use(express.json());
@@ -65,7 +65,48 @@ app.post('/noticias', async (req, res) => {
 });
 
 
-// 5. Iniciar el servidor
-app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
+async function initDb() {
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS noticias (
+        id SERIAL PRIMARY KEY,
+        titulo TEXT NOT NULL,
+        descripcion TEXT NOT NULL,
+        imagen_url TEXT,
+        noticia_url TEXT NOT NULL,
+        keywords TEXT[] NOT NULL
+      );
+    `);
+    const result = await pool.query('SELECT COUNT(*)::int AS count FROM noticias');
+    const count = result.rows[0]?.count ?? 0;
+    if (count === 0) {
+      const query = `
+        INSERT INTO noticias (titulo, descripcion, imagen_url, noticia_url, keywords)
+        VALUES ($1, $2, $3, $4, $5);
+      `;
+      const values = [
+        'Demo: Bienvenido a InfoMóvil',
+        'Esta es una noticia inicial creada automáticamente al arrancar el servidor.',
+        'https://via.placeholder.com/800x400?text=Noticia+Inicial',
+        'https://ejemplo.com/noticia-inicial',
+        ['inicio', 'demo', 'infomovil']
+      ];
+      await pool.query(query, values);
+      console.log('Seed: noticia inicial creada.');
+    } else {
+      console.log(`Seed: la tabla noticias ya tiene ${count} registros.`);
+    }
+  } catch (err: any) {
+    if (err && err.code === 'ECONNREFUSED') {
+      console.warn('Seed omitido: PostgreSQL no disponible en 127.0.0.1:5432');
+      return;
+    }
+    console.error('Fallo al inicializar la base de datos:', err);
+  }
+}
+
+initDb().finally(() => {
+  app.listen(port, () => {
+    console.log(`Servidor corriendo en http://localhost:${port}`);
+  });
 });

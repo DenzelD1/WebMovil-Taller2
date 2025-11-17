@@ -122,4 +122,5 @@ def get_weather(q: str, db: Session = Depends(get_db)):
         return {"cod": 404, "message": "city not found"}
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    # Usar puerto 8001 para evitar conflictos con servidores locales en 8000
+    uvicorn.run("main:app", host="0.0.0.0", port=8001, reload=True)

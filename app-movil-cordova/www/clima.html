@@ -64,6 +64,17 @@
                 <p class="text-gray-500 text-center text-xl">Cargando datos del clima...</p>
             </div>
 
+                    <!-- Backend-only Clima section: only use GET /weather?q=... -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg mt-6">
+                        <h3 class="text-xl font-bold mb-3">Climas Guardados</h3>
+                        <p class="text-sm text-gray-600 mb-4">Para cargar un clima guardado debes ingresarlo de la siguiente manera: <code>(Ciudad[,país])</code>.</p>
+                        <form id="clima-backend-form" class="flex gap-3 items-center">
+                            <input id="clima-backend-input" type="text" placeholder="Ej: Coquimbo,cl" class="flex-1 px-3 py-2 border rounded" required />
+                            <button id="clima-backend-submit" type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Buscar</button>
+                        </form>
+                        <div id="clima-backend-result" class="mt-4"></div>
+                    </div>
+
             <div id="clima-recomendaciones" class="space-y-6"> </div>
         </main>
 
@@ -73,6 +84,8 @@
             </div>
         </footer>
     
+        <script src="js/api-config.js"></script>
+        <script src="js/clima-backend.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

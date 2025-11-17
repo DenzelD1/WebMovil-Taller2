@@ -36,9 +36,31 @@
     </header>
 
     <main class="container mx-auto p-4">
-        
+
+        <!-- Mis Noticias: crear y leer noticias guardadas (usa POST /noticias del backend) -->
+        <section id="mis-noticias" class="bg-white p-6 rounded-xl shadow-lg mb-6">
+            <h2 class="text-2xl font-bold mb-3">Mis Noticias</h2>
+            <p class="text-sm text-gray-600 mb-4">Crea una noticia y guárdala en el backend. Las noticias guardadas se muestran abajo.</p>
+
+            <form id="mis-noticias-form" class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                <input id="mn-titulo" type="text" placeholder="Título" class="p-2 border rounded" required />
+                <input id="mn-noticiaUrl" type="url" placeholder="URL de la noticia (https://...)" class="p-2 border rounded" required />
+                <textarea id="mn-descripcion" placeholder="Descripción" class="p-2 border rounded md:col-span-2" required></textarea>
+                <input id="mn-imagenUrl" type="url" placeholder="URL de imagen (opcional)" class="p-2 border rounded" />
+                <input id="mn-keywords" type="text" placeholder="Keywords (separadas por comas)" class="p-2 border rounded" />
+                <div class="md:col-span-2 text-right">
+                    <button id="mn-submit" class="bg-blue-600 text-white px-4 py-2 rounded">Crear noticia</button>
+                    <button id="mn-refresh" type="button" class="ml-2 bg-gray-200 text-black px-3 py-2 rounded">Refrescar guardadas</button>
+                </div>
+            </form>
+
+            <div id="mis-noticias-list" class="space-y-3">
+                <p class="text-gray-500">No hay noticias guardadas localmente.</p>
+            </div>
+        </section>
+
         <section id="contenedor-noticias" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            </section>
+        </section>
 
         <div class="flex justify-center my-8">
             <button id="cargar-mas" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition duration-200 ease-in-out hidden">
@@ -47,6 +69,8 @@
         </div>
     </main>
 
+    <script src="js/api-config.js"></script>
+    <script src="js/noticias-backend.js"></script>
     <script src="js/noticias.js"></script>
 </body>
 </html>

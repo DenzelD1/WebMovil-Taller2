@@ -116,6 +116,12 @@
                 </div>
             </div>
 
+            <div class="bg-white rounded-2xl shadow-lg p-6 mt-6">
+                <h3 class="text-xl font-semibold mb-4">Mis Monedas</h3>
+                <div id="local-coins-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <p id="local-coins-loading" class="text-gray-500">Cargando monedas locales...</p>
+                </div>
+            </div>
 
             <div id="crypto-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             </div>
@@ -148,6 +154,16 @@
             </div>
         </div>
     </footer>
+    <!-- Local coins (from NestJS /coins) -->
+    <section id="local-coins-section" class="container mx-auto px-4 sm:px-6 py-6">
+        <h3 class="text-xl font-semibold mb-4">Mis Monedas (API Local)</h3>
+        <div id="local-coins-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <p id="local-coins-loading" class="text-gray-500">Cargando monedas locales...</p>
+        </div>
+    </section>
+
+    <script defer src="js/api-config.js"></script>
+    <script defer src="js/coins-backend.js"></script>
     <script defer src="js/crypto.js"></script>
 </body>
 </html>

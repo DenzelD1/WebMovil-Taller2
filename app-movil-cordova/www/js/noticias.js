@@ -39,10 +39,8 @@ function formatearFecha(dateString) {
 }
 
 
-// Función que crea el HTML para una tarjeta de noticia
 function crearTarjetaNoticia(noticia) {
     const imagenUrl = noticia.image_url || 'https://via.placeholder.com/600x400?text=Imagen+No+Disponible';
-    // Limita la descripción para mantener la tarjeta concisa
     const descripcionCorta = noticia.description ? noticia.description.substring(0, 120) + '...' : 'Sin descripción disponible.';
     const fechaFormateada = formatearFecha(noticia.pubDate);
 
