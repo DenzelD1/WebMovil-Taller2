@@ -21,9 +21,9 @@ Martin Adones Tapia, 21.293.739-8
 - PostgreSQL (api-express)
 
 ## Recurso que cubre cada API
-- (api-fastapi): Proporciona datos del clima en http://localhost:8000
-- (api-express): Proporciona noticias en http://localhost:3000
-- (api-nestjs) :
+- (api-fastapi): Proporciona datos del clima en http://localhost:8001
+- (api-express): Proporciona noticias en http://localhost:3001
+- (api-nestjs): Proporciona criptomonedas en http://localhost:3000
 
 ## Ejecutar API-FASTAPI
 1° Navegar a la carpeta api-fastapi
@@ -42,7 +42,6 @@ python main.py
 Luego se deja la terminal abierta para que el servidor esté corriendo
 
 ## Ejecutar API-EXPRESS
-
 1° Instalar dependencias en la carpeta news-api-express
 ```bash
 npm install
@@ -72,6 +71,16 @@ CREATE TABLE noticias (
 npm run start:dev
 ```
 
-Se debe dejar la terminal abierta para que el servidor siga corriendo. La API estará disponible en http://localhost:3000.
+Se debe dejar la terminal abierta para que el servidor siga corriendo. La API estará disponible en http://localhost:3001.
 
 ## Ejecutar API-NESTJS
+1° Instalar dependencias en la carpeta api-nest-js
+```bash
+npm install
+```
+2° Ejecutar la api en modo desarrollo
+```bash
+npm run start:dev
+```
+
+Se debe dejar la terminal abierta para que el servidor siga corriendo. La API estará disponible en http://localhost:3000.
